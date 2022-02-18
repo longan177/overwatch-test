@@ -71,7 +71,7 @@ function EditUser({ user }) {
               onChange={(e) => setlastName(e.target.value)}
               className="border"
               type="text"
-              value={last_name}
+              value={lastName}
             ></input>
           </div>
         </div>
