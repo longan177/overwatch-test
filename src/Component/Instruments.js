@@ -16,7 +16,6 @@ function Instruments() {
 export default Instruments;
 
 function Table({ list }) {
-  console.log(list);
   return (
     <section className="table border">
       <div className="table-header">

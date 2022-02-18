@@ -27,8 +27,8 @@ function Header() {
   return (
     <header>
       <div className="fixed-container gadget-container">
-        {info.map((i) => (
-          <Gadget {...i} />
+        {info.map((i, index) => (
+          <Gadget key={index} {...i} />
         ))}
       </div>
     </header>

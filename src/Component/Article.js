@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useUserContext } from "../context";
 function Article() {
   const { user } = useUserContext();
@@ -18,7 +18,7 @@ export default Article;
 function UserInfo({ user }) {
   const { data } = user;
   const { email, first_name, last_name, avatar } = data;
-  console.log(email);
+
   return (
     <div className="userinfo border">
       <div className="img-container">
@@ -44,7 +44,11 @@ function UserInfo({ user }) {
 }
 function EditUser({ user }) {
   const { data } = user;
-  const { email, first_name, last_name, avatar } = data;
+  const { email, first_name, last_name } = data;
+  const [firstName, setfirstName] = useState(first_name);
+  const [lastName, setlastName] = useState(last_name);
+  const [userEmail, setUserEmail] = useState(email);
+
   return (
     <div className="editinfo border">
       <div className="edit-header">
@@ -54,17 +58,32 @@ function EditUser({ user }) {
         <div className="name-input ">
           <div className="input-control">
             <div>First Name</div>
-            <input className="border" type="text" value={first_name}></input>
+            <input
+              onChange={(e) => setfirstName(e.target.value)}
+              className="border"
+              type="text"
+              value={firstName}
+            ></input>
           </div>
           <div className="input-control">
             <div>Last Name</div>
-            <input className="border" type="text" value={last_name}></input>
+            <input
+              onChange={(e) => setlastName(e.target.value)}
+              className="border"
+              type="text"
+              value={last_name}
+            ></input>
           </div>
         </div>
         <div className="email-input">
           <div className="input-control">
             <div>Email</div>
-            <input className="border" type="text" value={email}></input>
+            <input
+              onChange={(e) => setUserEmail(e.target.value)}
+              className="border"
+              type="text"
+              value={userEmail}
+            ></input>
           </div>
         </div>
         <div className="edit-profile-btn-container">
